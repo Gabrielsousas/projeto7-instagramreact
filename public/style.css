@@ -306,3 +306,10 @@ ion-icon {
   color: black;
 }
 
+[name="heart"] {
+  color: red;
+}
+
+[name="bookmark"] {
+  color: blue;
+}

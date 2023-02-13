@@ -1,3 +1,4 @@
+import { useState } from "react"
 export default function Posts() {
   const posts = [
     {
@@ -7,7 +8,7 @@ export default function Posts() {
       contentText: "gato-telefone",
       likedForImage: "assets/img/respondeai.svg",
       likedFor: "respondeai",
-      qtdeCurtidas: "101.523",
+      totalDeCurtidas: "101523",
     },
     {
       userImage: "assets/img/barked.svg",
@@ -16,7 +17,7 @@ export default function Posts() {
       contentText: "dog",
       likedForImage: "assets/img/adorable_animals.svg",
       likedFor: "adorable_animals",
-      qtdeCurtidas: "99.159",
+      totalDeCurtidas: "99159",
     },
     {
       userImage: "assets/img/barked.svg",
@@ -25,7 +26,7 @@ export default function Posts() {
       contentText: "dog",
       likedForImage: "assets/img/adorable_animals.svg",
       likedFor: "adorable_animals",
-      qtdeCurtidas: "99.159",
+      totalDeCurtidas: "99159",
     },
   ];
 
@@ -39,14 +40,34 @@ export default function Posts() {
           contentText={post.contentText}
           likedForImage={post.likedForImage}
           likedFor={post.likedFor}
-          qtdeCurtidas={post.qtdeCurtidas}
+          totalDeCurtidas={post.totalDeCurtidas}
         />
       ))}
     </div>
   );
 }
 
+
 function Post(props) {
+  const [salvo, setSalvo] = useState(false)
+  const [liked, setCurtido] = useState(false)
+  
+  const likes = liked ? Number(props.totalDeCurtidas) + 1 : props.totalDeCurtidas;
+  const likesOnScreen = `${Math.floor(likes / 1000)}.${likes % 1000}`
+  function salvarPost() {
+      setSalvo((state) => !state)
+  }
+
+  function likePost() {
+      setCurtido((state) => !state)
+  }
+
+function likeImage() {
+  setCurtido(true);
+  
+}
+
+
   return(
   <div className="post">
     <div className="topo">
@@ -60,26 +81,25 @@ function Post(props) {
     </div>
 
     <div className="conteudo">
-      <img src={props.contentImage} alt={props.contentText} />
+    <img src={props.contentImage} alt={props.contentText} onClick={likeImage} />
     </div>
 
     <div className="fundo">
       <div className="acoes">
         <div>
-          <ion-icon name="heart-outline"></ion-icon>
+        <ion-icon name={liked ? "heart" : "heart-outline"} onClick={likePost}></ion-icon>
           <ion-icon name="chatbubble-outline"></ion-icon>
           <ion-icon name="paper-plane-outline"></ion-icon>
         </div>
         <div>
-          <ion-icon name="bookmark-outline"></ion-icon>
+          <ion-icon name={salvo ? "bookmark" : "bookmark-outline"} onClick={salvarPost}></ion-icon>
         </div>
       </div>
-
       <div className="curtidas">
         <img src={props.likedForImage} alt={props.likedFor} />
         <div className="texto">
           Curtido por <strong>{props.likedFor}</strong> e{" "}
-          <strong>outras {props.qtdeCurtidas} pessoas</strong>
+          <strong>outras {likesOnScreen} pessoas</strong>
         </div>
       </div>
     </div>
