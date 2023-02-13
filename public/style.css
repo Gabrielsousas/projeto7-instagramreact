@@ -138,6 +138,7 @@ body {
   position: absolute;
   right: 10px;
   top: 45px;
+  z-index: 1;
   height: 32px;
   width: 32px;
   color: #FFF;
