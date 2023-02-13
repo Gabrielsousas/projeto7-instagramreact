@@ -26,12 +26,13 @@ export default function Usuario() {
       <img
         src={fotoDePerfil}
         alt="imagem de perfil"
+        data-test="profile-image"
         onClick={handleClickImagemDePerfil}
       />
-      <div className="texto">
+      <div className="texto" data-test="name">
         <span>
           <strong>{nomeDeUsuario}</strong>
-          <ion-icon name="pencil" onClick={handleClickLapis}></ion-icon>
+          <ion-icon name="pencil" data-test="edit-name" onClick={handleClickLapis}></ion-icon>
         </span>
       </div>
     </div>

@@ -31,7 +31,7 @@ export default function Posts() {
   ];
 
   return (
-    <div className="posts">
+    <div className="posts" data-test="post">
       {posts.map((post) => (
         <Post
           userImage={post.userImage}
@@ -81,18 +81,18 @@ function likeImage() {
     </div>
 
     <div className="conteudo">
-    <img src={props.contentImage} alt={props.contentText} onClick={likeImage} />
+    <img src={props.contentImage} alt={props.contentText} data-test="post-image" onClick={likeImage} />
     </div>
 
     <div className="fundo">
       <div className="acoes">
         <div>
-        <ion-icon name={liked ? "heart" : "heart-outline"} onClick={likePost}></ion-icon>
+        <ion-icon name={liked ? "heart" : "heart-outline"} data-test="likes-number" onClick={likePost}></ion-icon>
           <ion-icon name="chatbubble-outline"></ion-icon>
           <ion-icon name="paper-plane-outline"></ion-icon>
         </div>
         <div>
-          <ion-icon name={salvo ? "bookmark" : "bookmark-outline"} onClick={salvarPost}></ion-icon>
+          <ion-icon name={salvo ? "bookmark" : "bookmark-outline"} data-test="save-post" onClick={salvarPost}></ion-icon>
         </div>
       </div>
       <div className="curtidas">
