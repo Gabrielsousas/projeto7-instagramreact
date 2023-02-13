@@ -87,7 +87,7 @@ function likeImage() {
     <div className="fundo">
       <div className="acoes">
         <div>
-        <ion-icon data-test="like-post " name={liked ? "heart" : "heart-outline"} onClick={likePost}></ion-icon>
+        <ion-icon data-test="like-post" name={liked ? "heart" : "heart-outline"} onClick={likePost}></ion-icon>
           <ion-icon name="chatbubble-outline"></ion-icon>
           <ion-icon name="paper-plane-outline"></ion-icon>
         </div>
@@ -97,7 +97,7 @@ function likeImage() {
       </div>
       <div className="curtidas">
         <img src={props.likedForImage} alt={props.likedFor} />
-        <div className="texto">
+        <div data-test="likes-number" className="texto">
           Curtido por <strong>{props.likedFor}</strong> e{" "}
           <strong>outras {likesOnScreen} pessoas</strong>
         </div>
