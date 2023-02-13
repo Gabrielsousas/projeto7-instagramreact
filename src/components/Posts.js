@@ -21,12 +21,12 @@ export default function Posts() {
     },
     {
       userImage: "assets/img/barked.svg",
-      nome: "barked",
+      nome: "barked-the-fake-one",
       contentImage: "assets/img/dog.svg",
-      contentText: "dog",
+      contentText: "another-dog",
       likedForImage: "assets/img/adorable_animals.svg",
       likedFor: "adorable_animals",
-      totalDeCurtidas: "99159",
+      totalDeCurtidas: "9932",
     },
   ];
 
@@ -87,7 +87,7 @@ function likeImage() {
     <div className="fundo">
       <div className="acoes">
         <div>
-        <ion-icon name={liked ? "heart" : "heart-outline"} data-test="likes-number" onClick={likePost}></ion-icon>
+        <ion-icon name={liked ? "heart" : "heart-outline"} data-test="like-post " onClick={likePost}></ion-icon>
           <ion-icon name="chatbubble-outline"></ion-icon>
           <ion-icon name="paper-plane-outline"></ion-icon>
         </div>
